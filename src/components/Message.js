@@ -15,7 +15,8 @@ export class message extends Component {
 
   //functions go here
 handleClick() {
-  this.props.handleMessage(this.state.words)
+  this.props.handleMessage(this.state.words);
+  this.state.words='';
 }
 
   render() {
@@ -23,10 +24,13 @@ handleClick() {
     return (
       <div>
         <input
+          id="textEntry"
+          placeholder="Text Goes Here"
           type="text"
+          value={this.state.words}
           onChange={(e) => this.setState({words: e.target.value})}
         ></input>
-        <button onClick={this.handleClick}>Submit Header</button>
+        <button onClick={this.handleClick}>Submit Text</button>
       </div>
     );
   }
